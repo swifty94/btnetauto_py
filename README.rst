@@ -7,8 +7,7 @@ Requirements
 ============
 
 -  Python 3.X and higher
-
-TODO: add necessary dependencies
+-  Access to Internet/PyPy
 
 Installation
 ============
@@ -20,12 +19,13 @@ To install, simply do::
 Usage
 =====
 
-Basics
-------
+1. Open CMD
+2. Access project directory, e.g., "cd btnetauto_py"
+3. Run it with something like "python ."
 
-TODO: add examples of usage
+Can be automated by any task scheduler like cron or windows one
 
-Running tests::
+Running tests:: (to be implemented)
 =============
 
     C:\btnetauto_py>python btnetauto_py\tests.py
