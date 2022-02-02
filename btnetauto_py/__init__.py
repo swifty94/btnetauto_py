@@ -1,4 +1,4 @@
-# Copyright (c) 2013, Thomas P. Robitaille
+# Copyright (c) 2022, Kirill Rudenko
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without

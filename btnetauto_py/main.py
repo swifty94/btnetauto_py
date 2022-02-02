@@ -1,4 +1,4 @@
-# Copyright (c) 2013, Thomas P. Robitaille
+# Copyright (c) 2022, Kirill Rudenko
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -23,8 +23,4 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-import time
-
-def mainStr():
-    time.sleep(2)
-    return "HelloFromMyLib"
+# TODO: main part
