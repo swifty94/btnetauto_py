@@ -22,6 +22,12 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
-#
-#   CSV report parsing module
-#
+
+from base import LoggerFactory
+from main import BTNetAuto
+logger = LoggerFactory.get_logger(__name__, "INFO")
+try:
+    btnet = BTNetAuto()
+    btnet.main()
+except Exception as e:
+    logger.info(f"Exception {e}")

@@ -23,4 +23,24 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-# TODO: main part
+from base import LoggerFactory
+from _email import Email
+from webparser import WebParser
+from csvparser import Report
+class BTNetAuto(object):
+    def __init__(self) -> None:
+        self.logger = LoggerFactory.get_logger(__class__.__name__, "INFO")
+        self.web = WebParser()
+        self.report = Report()
+        self.email = Email()
+    
+    def main(self):
+        """Main app module"""
+        try:
+            self.logger.info("-"*20+"START"+"-"*20)
+            self.web.main()
+            report = self.report.make()
+            self.email.send(report)
+            self.logger.info("-"*20+"END"+"-"*20)
+        except Exception as e:
+            self.logger.exception(f"Exception {e}")

@@ -29,7 +29,7 @@ setup(name='btnetauto_py',
       author_email='kirillrudenko1994@gmail.com',
       packages=['btnetauto_py'],
       provides=['btnetauto_py'],
-      install_requires=[''],
+      install_requires=['selenium==4.1.0', 'pandas==1.4.0'],
       cmdclass={'build_py': build_py},
       classifiers=[
                    "Programming Language :: Python",

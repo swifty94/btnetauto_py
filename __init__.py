@@ -24,6 +24,6 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 #TODO: add submodules to __all__
-__all__ = []
+__all__ = ["base", "_email", "csvparser", "webparser", "main", "tests"]
 
-__version__ = '0.1'
+__version__ = '0.3'

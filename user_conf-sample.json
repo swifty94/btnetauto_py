@@ -1,0 +1,10 @@
+{
+    "URL": "http://btnet.friendly-tech.com/btnet/",
+    "USER": "",
+    "PASS": "",
+    "SMTP_HOST": "smtp.gmail.com",
+    "SMTP_PORT": "465",
+    "SMTP_USER": "",
+    "SMTP_PASS": "",
+    "recepients": ["", ""]
+}

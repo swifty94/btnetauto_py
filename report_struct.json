@@ -1,0 +1,5 @@
+{
+    "reportName": "Support_Report_",
+    "columns": ["id","assigned to", "category", "reported on", "Estimation date"],
+    "txt":"Hello everyone,\n\nPlease, check attached the Support Report on open bugs/ issues with most important information.\n\nSelected all open bugs/ issues in FT BT system under condition: 'Open' + Organization 'Friendly Support' + Priority '2-must fix' && '3-fix'.\n\nBest Regards,\nBTNetAutomation |  Friendly-Technologies FTL (Ltd.)"
+}

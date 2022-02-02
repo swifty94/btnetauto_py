@@ -28,6 +28,7 @@
 import logging
 import logging.config
 from os import path
+import json
 logging.config.fileConfig(path.join(path.dirname(path.abspath(__file__)), 'logging.ini'))
 
 class LoggerFactory(object):
@@ -62,6 +63,20 @@ class LoggerFactory(object):
         # return the logger object
         return logger
 
-class JsonSettings(object):
-    pass
+class JsonConf(object):
+    def __init__(self, json_file) -> None:
+        self.json_file = json_file
+        self.logger = LoggerFactory.get_logger(__class__.__name__, "INFO")
+        self.content = {}
+        self.__getContent()
+        self.logger.info(f"Json_Conf_Object: {self.content.keys()}")
 
+    def __getContent(self):
+        try:
+            with open(self.json_file) as f:
+                data = json.load(f)
+                for k, v in data.items():
+                    self.content[k] = v
+        except Exception as e:
+            self.logger.error(f'Exception {e}', exc_info=1)
+            
