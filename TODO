@@ -1,0 +1,32 @@
+--- Report name - "Support Report January $date"
+
+--- Report header
+
+Number | Assigned to |Category | Reported | Close till 
+
+--- Report text/summary
+
+Hello everyone,
+
+Please, check the Support Report on open bugs/ issues with most important information.
+
+Selected all open bugs/ issues in FT BT system under condition: "Open" + Organization "Friendly Support" + Priority "2-must fix" && "3-fix".
+
+$Report name
+
+$Report header/body
+
+$Signature
+
+--- Runtime steps:
+
+- init
+- get user related constants
+- logger / thread / app factory
+- define project self path to selenium driver 
+- login > sort report by 2 priority createrias > export report 2 reports
+- Items to get from CSVs: "id + assigned to + category | reported on | Estimation date"
+- 1 report out of 2
+- compile final message, attach report original report + html version to email.
+- send to whome it may concern
+- shutdown
