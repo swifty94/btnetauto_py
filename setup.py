@@ -23,7 +23,6 @@ from libname import __version__
 setup(name='btnetauto_py',
       version=__version__,
       description='Simple library for automated report generating from the BTNet bug-tracker system',
-      long_description=long_description,
       url='https://github.com/swifty94/btnetauto_py',
       license='Simplified BSD License',
       author='Kirill Rudenko',
