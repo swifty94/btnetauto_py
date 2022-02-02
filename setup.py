@@ -18,7 +18,7 @@ from distutils.command.build_py import build_py
 with open('README.rst') as infile:
     long_description = infile.read()
 
-from libname import __version__
+from __init__ import __version__
 
 setup(name='btnetauto_py',
       version=__version__,
@@ -27,7 +27,6 @@ setup(name='btnetauto_py',
       license='Simplified BSD License',
       author='Kirill Rudenko',
       author_email='kirillrudenko1994@gmail.com',
-      packages=['btnetauto_py'],
       provides=['btnetauto_py'],
       install_requires=['selenium==4.1.0', 'pandas==1.4.0'],
       cmdclass={'build_py': build_py},

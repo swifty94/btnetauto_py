@@ -16,6 +16,8 @@ To install, simply do::
 
     python setup.py install
 
+Rename user_conf-sample.json to user_conf.json and put relevant details there.
+
 Usage
 =====
 
