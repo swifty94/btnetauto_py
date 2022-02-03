@@ -69,7 +69,6 @@ class JsonConf(object):
         self.logger = LoggerFactory.get_logger(__class__.__name__, "INFO")
         self.content = {}
         self.__getContent()
-        self.logger.info(f"Json_Conf_Object: {self.content.keys()}")
 
     def __getContent(self):
         try:
@@ -80,3 +79,10 @@ class JsonConf(object):
         except Exception as e:
             self.logger.error(f'Exception {e}', exc_info=1)
             
+class UserConf(JsonConf):
+    def __init__(self, json_file='user_conf.json') -> None:
+        super().__init__(json_file)
+
+class ReportrConf(JsonConf):
+    def __init__(self, json_file='report_struct.json') -> None:
+        super().__init__(json_file)

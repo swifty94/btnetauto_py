@@ -25,11 +25,9 @@
 #
 #   CSV report parsing module
 #
-from pydoc import ispath
-from base import LoggerFactory, JsonConf
+from base import LoggerFactory, ReportrConf
 import pandas as pd
 from datetime import datetime
-import time
 from os import listdir, getcwd
 from os.path import isfile, join
 
@@ -37,7 +35,7 @@ class Report(object):
     def __init__(self) -> None:
         self.logger = LoggerFactory.get_logger(__class__.__name__, "INFO")
         self.mypath = getcwd()+"\\tmp\\"
-        self.CONF = JsonConf(getcwd()+'\\report_struct.json')
+        self.CONF = ReportrConf()
         self.cols = self.CONF.content["columns"]
         self.name = self.CONF.content["reportName"]
         self.today = datetime.now()

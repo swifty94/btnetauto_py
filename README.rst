@@ -6,6 +6,7 @@ Simple library for automated report generating from the BTNet bug-tracker system
 Requirements
 ============
 
+-  windows 8+, windows server 2012+
 -  Python 3.X and higher
 -  Access to Internet/PyPy
 
@@ -14,7 +15,9 @@ Installation
 
 To install, simply do::
 
-    python setup.py install
+    1. Open CMD
+    2. Access project directory, e.g., "cd btnetauto_py"
+    3. python setup.py install
 
 Rename user_conf-sample.json to user_conf.json and put relevant details there.
 
@@ -25,7 +28,16 @@ Usage
 2. Access project directory, e.g., "cd btnetauto_py"
 3. Run it with something like "python ."
 
-Can be automated by any task scheduler like cron or windows one
+Can be automated by windows task scheduler.
+
+Customization:
+
+- Report structure to be defined in report_struct.json file
+
+reportName - Name of the report file
+columns - list of column names from original BugTracker.NET report you wish to filter out
+priority - default values "2 - must fix" and "3 - fix". You might add others from BugTracker.NET
+txt - the text to be placed in the email
 
 Running tests:: (to be implemented)
 =============

@@ -28,7 +28,7 @@
 import time
 from os import mkdir, path, getcwd
 import shutil
-from base import LoggerFactory, JsonConf
+from base import LoggerFactory, JsonConf, ReportrConf, UserConf
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.service import Service
@@ -47,10 +47,12 @@ class WebParser:
         param: none
         """
         self.log = LoggerFactory.get_logger(__class__.__name__, log_level="INFO")
-        self.CONF = JsonConf(getcwd()+'\\user_conf.json')
+        self.CONF = UserConf()
         self.url = self.CONF.content["URL"]
         self.usr = self.CONF.content["USER"]
         self.passwd = self.CONF.content["PASS"]
+        self.REPORT = ReportrConf()
+        self.priorities = self.REPORT.content['priority']
         self.tmp_path = getcwd()+"\\tmp\\"
     
     def _make_tmp(self):
@@ -145,12 +147,10 @@ class WebParser:
         try:
             self.log.info('Main pipeline - start')
             logon_session = self.login_btnet()
-            self.create_view_and_export(logon_session, "2 - must fix")
-            time.sleep(5)
-            self.log.info('Pause 5 sec')
-            self.create_view_and_export(logon_session, "3 - fix")
-            self.log.info('Pause 5 sec more')
-            time.sleep(5)  
+            for p in self.priorities:
+                self.create_view_and_export(logon_session, p)
+                time.sleep(5)
+                self.log.info('Pause 5 sec')
             self.session_die(logon_session)
             self.log.info('Main pipeline - finish')
         except Exception as e:

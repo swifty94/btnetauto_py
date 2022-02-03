@@ -25,7 +25,7 @@
 #
 #   Inner SMPT module
 #
-from base import LoggerFactory, JsonConf
+from base import LoggerFactory, UserConf, ReportrConf
 from os import remove, getcwd
 import smtplib, ssl
 from datetime import datetime
@@ -37,8 +37,8 @@ class Email(object):
   Class for reporting data via email once job is finished
   """
   def __init__(self):
-    self.CONF = JsonConf(getcwd()+'\\user_conf.json')
-    self.REPORT_CONF = JsonConf(getcwd()+'\\report_struct.json')
+    self.CONF = UserConf()
+    self.REPORT_CONF = ReportrConf()
     self.logger = LoggerFactory.get_logger(__class__.__name__, "INFO")
     self.SMTP_HOST = self.CONF.content["SMTP_HOST"]
     self.SMTP_PORT = self.CONF.content["SMTP_PORT"]

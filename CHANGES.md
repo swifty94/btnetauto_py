@@ -1,3 +1,10 @@
+0.4 (2022-02-03)
+----------------
+
+- Refactored JsonConf + WebParser functionality
+- New json settings items
+- README update
+
 0.3 (2022-02-02)
 ----------------
 
