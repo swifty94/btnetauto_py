@@ -1,3 +1,7 @@
+0.5 (2022-02-03)
+
+- Implemented a few basic unittest cases for base
+
 0.4 (2022-02-03)
 ----------------
 

@@ -6,8 +6,9 @@ Simple library for automated report generating from the BTNet bug-tracker system
 Requirements
 ============
 
--  windows 8+, windows server 2012+
--  Python 3.X and higher
+-  Windows 8+, Windows server 2012+
+-  Lates Chrome browser installed (otherwise, might be a Selenium driver compatibility issues)
+-  Python 3+
 -  Access to Internet/PyPy
 
 Installation
@@ -40,13 +41,17 @@ columns - list of column names from original BugTracker.NET report you wish to f
 priority - default values "2 - must fix" and "3 - fix". You might add others from BugTracker.NET
 txt - the text to be placed in the email
 
-Running tests:: (to be implemented)
+Running tests::
 =============
 
-    C:\btnetauto_py>python btnetauto_py\tests.py
+    C:\btnetauto_py>python tests.py
+    testReportConf (__main__.TestJsonSettingsInterface) ... ok
+    testUserConf (__main__.TestJsonSettingsInterface) ... ok
+    testLoggerFactory (__main__.TestLogger) ... ok
+
     ----------------------------------------------------------------------
-    Ran 1 test in 2.012s
-    OK
+    Ran 3 tests in 0.002s
+
     C:\btnetauto_py>
 
 Reporting issues

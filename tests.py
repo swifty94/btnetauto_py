@@ -26,10 +26,26 @@
 #   Some unit testing here
 #
 import unittest
+from base import UserConf, ReportrConf, LoggerFactory
+class TestJsonSettingsInterface(unittest.TestCase):
+    
+    def testUserConf(self):
+        uc = UserConf(json_file='user_conf-sample.json')
+        self.assertEqual(uc.content['USER'], "")
 
-class TestCase(unittest.TestCase):
-    pass
-   #TODO: make tests
+    def testReportConf(self):
+        rc = ReportrConf()
+        self.assertEqual(rc.content['reportName'], "Support_Report_")
+
+class TestLogger(unittest.TestCase):
+    
+    def testLoggerFactory(self):
+        l = LoggerFactory.get_logger(__class__.__name__, "INFO")
+        with self.assertLogs(level='INFO') as log:
+            l.info('Log message')
+            self.assertEqual(len(log.output), 1)
+            self.assertEqual(len(log.records), 1)
+            self.assertIn('Log message', log.output[0])
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)

@@ -86,3 +86,5 @@ class UserConf(JsonConf):
 class ReportrConf(JsonConf):
     def __init__(self, json_file='report_struct.json') -> None:
         super().__init__(json_file)
+
+r = ReportrConf()
