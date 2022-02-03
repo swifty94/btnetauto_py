@@ -1,6 +1,7 @@
 {
-    "reportName": "Support_Report_",
-    "columns": ["id","assigned to", "category", "reported on", "Estimation date"],
-    "priority": ["2 - must fix", "3 - fix"],
-    "txt":"Hello everyone,\n\nPlease, check attached the Support Report on open bugs/ issues with most important information.\n\nSelected all open bugs/ issues in FT BT system under condition: 'Open' + Organization 'Friendly Support' + Priority '2-must fix' && '3-fix'.\n\nBest Regards,\nBTNetAutomation |  Friendly-Technologies FTL (Ltd.)"
+    "reportName": "Full_Support_Report_",
+    "columns": ["id", "priority", "assigned to", "category", "reported on", "status", "last updated by", "Estimation date"],
+    "priority": ["1 - must fix urgent", "2 - must fix", "3 - fix"],
+    "statuses": ["open", "responded"],
+    "txt":"Hello everyone,\n\nPlease, check attached the Full Support Report on open/responded bugs/features \n\nSelected all open bugs/ issues in FT BT system under condition: \n- 'Open'\n- 'Responded' \n - Organization 'Friendly Support' \n - Priority '1 - must fix urgent' \n - '2-must fix' \n - '3-fix'.\n\nBest Regards,\nBTNetAutomation |  Friendly-Technologies FTL (Ltd.)"
 }

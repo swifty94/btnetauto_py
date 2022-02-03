@@ -53,6 +53,7 @@ class WebParser:
         self.passwd = self.CONF.content["PASS"]
         self.REPORT = ReportrConf()
         self.priorities = self.REPORT.content['priority']
+        self.statuses = self.REPORT.content['statuses']
         self.tmp_path = getcwd()+"\\tmp\\"
     
     def _make_tmp(self):
@@ -101,26 +102,26 @@ class WebParser:
         except Exception as e:
             self.log.exception(f'Exception {e}', exc_info=1)
 
-    def create_view_and_export(self, logon_session, priority: str):
+    def create_view_and_export(self, logon_session, priority: str, status: str):
         try:
             """
             Create proper BTs table view based on report_stuct.json
             :param logon_session: WebDriver\n
             :param priority: str: '2 - must fix' or '3 - fix'
             """
-            self.log.info(f'Start BTNet View for BT priority - {priority}')
             #organization
+            __filters = {priority : status}
             org = Select(logon_session.find_element(By.ID, 'sel_[organization]'))
             org.select_by_visible_text('Friendly Support')
-            #status
-            status = Select(logon_session.find_element(By.ID, 'sel_[status]'))
-            status.select_by_visible_text('open')
-            #priority
+            # bt_status
+            bt_status = Select(logon_session.find_element(By.ID, 'sel_[status]'))
+            bt_status.select_by_visible_text(status)
+            # bt_priority
             bt_priority = Select(logon_session.find_element(By.ID, 'sel_[priority]'))
             bt_priority.select_by_visible_text(priority)
-            self.log.info(f"Created BTNet View for BT priority - {priority}")
+            self.log.info(f"Created BTNet View {__filters}")
             logon_session.find_element(By.XPATH, '//*[@id="ctl00"]/div[3]/table[1]/tbody/tr/td[5]/a').click()
-            self.log.info(f"Exported CSV for {priority}")
+            self.log.info(f"Exported CSV")
             return logon_session
         except Exception as e:
             self.log.exception(f'Exception {e}', exc_info=1)
@@ -134,6 +135,7 @@ class WebParser:
         try:
             session.close()
             self.log.info(f'Session Killed')
+            return 'Killed'
         except Exception as e:
             self.log.exception(f'Exception {e}', exc_info=1)
             
@@ -148,11 +150,13 @@ class WebParser:
             self.log.info('Main pipeline - start')
             logon_session = self.login_btnet()
             for p in self.priorities:
-                self.create_view_and_export(logon_session, p)
-                time.sleep(5)
-                self.log.info('Pause 5 sec')
+                for s in self.statuses:
+                    self.create_view_and_export(logon_session, p, s)
+                    time.sleep(2)
+                    self.log.info('Pause 2 sec')            
             self.session_die(logon_session)
             self.log.info('Main pipeline - finish')
+            return 'Main pipeline - finish'
         except Exception as e:
             self.log.exception(f'Exception {e}', exc_info=1)
                      

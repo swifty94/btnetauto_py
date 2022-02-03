@@ -47,5 +47,18 @@ class TestLogger(unittest.TestCase):
             self.assertEqual(len(log.records), 1)
             self.assertIn('Log message', log.output[0])
 
+class TestCsvInterface(unittest.TestCase):
+    pass
+
+class TestWebParser(unittest.TestCase):
+    pass
+
+class TestEmail(unittest.TestCase):
+    pass
+
+class TestBTNet(unittest.TestCase):
+    pass
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
