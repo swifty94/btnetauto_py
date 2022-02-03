@@ -24,7 +24,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 from base import LoggerFactory
-from email import Email
+from _email import Email
 from webparser import WebParser
 from csvparser import Report
 class BTNetAuto(object):
