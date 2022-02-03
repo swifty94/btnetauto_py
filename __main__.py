@@ -24,7 +24,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 from base import LoggerFactory
-from main import BTNetAuto
+from btnetauto import BTNetAuto
 logger = LoggerFactory.get_logger(__name__, "INFO")
 try:
     btnet = BTNetAuto()
